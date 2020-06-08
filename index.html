@@ -174,29 +174,13 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="拥有最多糖果的孩子"><a href="#拥有最多糖果的孩子" class="headerlink" title="拥有最多糖果的孩子"></a>拥有最多糖果的孩子</h2><p>给你一个数组 candies 和一个整数 extraCandies ，其中 candies[i] 代表第 i 个孩子拥有的糖果数目。</p>
-<p>对每一个孩子，检查是否存在一种方案，将额外的 extraCandies 个糖果分配给孩子们之后，此孩子有最多的糖果。注意，允许有多个孩子同时拥有最多的糖果数目。</p>
-<p>示例 1：</p>
-<p>输入：candies = [2,3,5,1,3], extraCandies = 3<br>输出：[true,true,true,false,true]<br>解释：<br>孩子 1 有 2 个糖果，如果他得到所有额外的糖果（3个），那么他总共有 5 个糖果，他将成为拥有最多糖果的孩子。<br>孩子 2 有 3 个糖果，如果他得到至少 2 个额外糖果，那么他将成为拥有最多糖果的孩子。<br>孩子 3 有 5 个糖果，他已经是拥有最多糖果的孩子。<br>孩子 4 有 1 个糖果，即使他得到所有额外的糖果，他也只有 4 个糖果，无法成为拥有糖果最多的孩子。<br>孩子 5 有 3 个糖果，如果他得到至少 2 个额外糖果，那么他将成为拥有最多糖果的孩子。</p>
-<p>提示：</p>
-<p>2 &lt;= candies.length &lt;= 100<br>1 &lt;= candies[i] &lt;= 100<br>1 &lt;= extraCandies &lt;= 50</p>
-<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/kids-with-the-greatest-number-of-candies" target="_blank" rel="noopener">https://leetcode-cn.com/problems/kids-with-the-greatest-number-of-candies</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
-<p>先扫一遍数组，得到孩子拥有的最大糖果数目maxc，再扫一遍数组，当前数字加上extraCandies大于等于maxc为true，否则false</p>
-<p>AC代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">kidsWithCandies</span><span class="params">(self, candies, extraCandies)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type candies: List[int]</span></span><br><span class="line"><span class="string">        :type extraCandies: int</span></span><br><span class="line"><span class="string">        :rtype: List[bool]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        max_candy = max(candies)</span><br><span class="line">        res = []</span><br><span class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> candies:</span><br><span class="line">            res.append(num + extraCandies &gt;= max_candy)</span><br><span class="line">            <span class="comment"># if num + extraCandies &gt;= max_candy:</span></span><br><span class="line">            <span class="comment">#     res.append(true)</span></span><br><span class="line">            <span class="comment"># else:</span></span><br><span class="line">            <span class="comment">#     res.append(false)</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
-<h2 id="除自身以外数组的乘积"><a href="#除自身以外数组的乘积" class="headerlink" title="除自身以外数组的乘积"></a>除自身以外数组的乘积</h2><p>给你一个长度为 n 的整数数组 nums，其中 n &gt; 1，返回输出数组 output ，其中 output[i] 等于 nums 中除 nums[i] 之外其余各元素的乘积。</p>
-<p>示例:</p>
-<p>输入: [1,2,3,4]<br>输出: [24,12,8,6]</p>
-<p>提示：题目数据保证数组之中任意元素的全部前缀元素和后缀（甚至是整个数组）的乘积都在 32 位整数范围内。</p>
-<p>说明: 请不要使用除法，且在 O(n) 时间复杂度内完成此题。</p>
-<p>进阶：<br>你可以在常数空间复杂度内完成这个题目吗？（ 出于对空间复杂度分析的目的，输出数组不被视为额外空间。）</p>
-<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/product-of-array-except-self" target="_blank" rel="noopener">https://leetcode-cn.com/problems/product-of-array-except-self</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
-<p>不许用除法做，题目又提到了前缀、后缀，疯狂暗示，思路是$result[i]$ = 第$i$个元素的前缀元素积 * 第$i$个元素的后缀元素积。先从前到后扫一遍数组，记录下各个位置的前缀元素积；再从后往前扫一遍数组，记录下各个位置的后缀元素积，两个数组对应位置相乘就是最后的结果。复杂度$O(n)$，符合要求</p>
-<p>题目进阶要求常数空间复杂度，那么前缀元素积数组可以用结果数组代替，后缀元素积数组可以只用一个数字来计算，边算suffix边算结果（AC代码的思路）。</p>
-<p>AC代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">productExceptSelf</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        ret = [<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(nums)):</span><br><span class="line">            ret.append(ret[i<span class="number">-1</span>]*nums[i<span class="number">-1</span>])</span><br><span class="line">        suffix = <span class="number">1</span></span><br><span class="line">        nums.reverse()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(nums)):</span><br><span class="line">            ret[-i] *= suffix</span><br><span class="line">            suffix *= nums[i<span class="number">-1</span>]</span><br><span class="line">        ret[<span class="number">0</span>] *= suffix</span><br><span class="line">        <span class="keyword">return</span> ret</span><br></pre></td></tr></table></figure>
-<p>但是不明白为什么我的空间复杂度才打败了12.5%的人。</p>
-
+        <ul>
+<li>拥有最多糖果的孩子</li>
+<li>除自身以外数组的乘积</li>
+</ul>
+        
+          <a class="article-more-a" href="/2020/06/01/leetcode-6-01-6-07/#more">more >></a>
+        
       
 
       
