@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>leetcode 6.15-6.21 | milly&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="宝石与石头 找树左下角的值">
+  <meta name="description" content="771 宝石与石头 513 找树左下角的值">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode 6.15-6.21">
 <meta property="og:url" content="http://yoursite.com/2020/06/20/leetcode-6-15-6-21/index.html">
 <meta property="og:site_name" content="milly&#39;s blog">
-<meta property="og:description" content="宝石与石头 找树左下角的值">
+<meta property="og:description" content="771 宝石与石头 513 找树左下角的值">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-06-20T07:34:06.000Z">
-<meta property="article:modified_time" content="2020-06-20T09:15:38.761Z">
+<meta property="article:modified_time" content="2020-06-28T08:41:37.081Z">
 <meta property="article:author" content="milly">
 <meta property="article:tag" content="刷题">
 <meta name="twitter:card" content="summary">
@@ -178,11 +178,11 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <ul>
-<li>宝石与石头</li>
-<li>找树左下角的值</li>
+<li>771 宝石与石头</li>
+<li>513 找树左下角的值</li>
 </ul>
 <a id="more"></a>
-<h2 id="正则表达式匹配"><a href="#正则表达式匹配" class="headerlink" title="正则表达式匹配"></a>正则表达式匹配</h2><p>给你一个字符串 s 和一个字符规律 p，请你来实现一个支持 ‘.’ 和 ‘*’ 的正则表达式匹配。</p>
+<h2 id="10-正则表达式匹配"><a href="#10-正则表达式匹配" class="headerlink" title="10. 正则表达式匹配"></a>10. 正则表达式匹配</h2><p>给你一个字符串 s 和一个字符规律 p，请你来实现一个支持 ‘.’ 和 ‘*’ 的正则表达式匹配。</p>
 <p>‘.’ 匹配任意单个字符<br>‘*’ 匹配零个或多个前面的那一个元素<br>所谓匹配，是要涵盖 整个 字符串 s的，而不是部分字符串。</p>
 <p>说明:</p>
 <p>s 可能为空，且只包含从 a-z 的小写字母。<br>p 可能为空，且只包含从 a-z 的小写字母，以及字符 . 和 *。<br>示例 1:</p>
@@ -194,7 +194,7 @@ var _hmt = _hmt || [];
 <p>菜鸟：<a href="https://www.runoob.com/python/python-reg-expressions.html" target="_blank" rel="noopener">https://www.runoob.com/python/python-reg-expressions.html</a></p>
 <p>CSDN：<a href="https://blog.csdn.net/chenmozhe22/article/details/80601971" target="_blank" rel="noopener">https://blog.csdn.net/chenmozhe22/article/details/80601971</a></p>
 <p>re.match返回的是从头开始匹配的结果，结果可以用group提取，span返回一个标记匹配结果的二元组。</p>
-<h2 id="宝石与石头"><a href="#宝石与石头" class="headerlink" title="宝石与石头"></a>宝石与石头</h2><p> 给定字符串J 代表石头中宝石的类型，和字符串 S代表你拥有的石头。 S 中每个字符代表了一种你拥有的石头的类型，你想知道你拥有的石头中有多少是宝石。</p>
+<h2 id="771-宝石与石头"><a href="#771-宝石与石头" class="headerlink" title="771. 宝石与石头"></a>771. 宝石与石头</h2><p> 给定字符串J 代表石头中宝石的类型，和字符串 S代表你拥有的石头。 S 中每个字符代表了一种你拥有的石头的类型，你想知道你拥有的石头中有多少是宝石。</p>
 <p>J 中的字母不重复，J 和 S中的所有字符都是字母。字母区分大小写，因此”a”和”A”是不同类型的石头。</p>
 <p>示例 1:</p>
 <p>输入: J = “aA”, S = “aAAbbbb”<br>输出: 3<br>示例 2:</p>
@@ -204,7 +204,7 @@ var _hmt = _hmt || [];
 <p>方法一：暴力，双层循环</p>
 <p>方法二：哈希</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">numJewelsInStones</span><span class="params">(self, J, S)</span>:</span></span><br><span class="line">        <span class="comment"># ret = 0</span></span><br><span class="line">        <span class="comment"># for ch in S:</span></span><br><span class="line">        <span class="comment">#     if ch in J:</span></span><br><span class="line">        <span class="comment">#         ret += 1</span></span><br><span class="line">        <span class="comment"># return ret</span></span><br><span class="line">        dic = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> rock <span class="keyword">in</span> S:</span><br><span class="line">            dic[rock] = dic.get(rock, <span class="number">0</span>) + <span class="number">1</span></span><br><span class="line">        ret = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> rock <span class="keyword">in</span> J:</span><br><span class="line">            ret += dic.get(rock, <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> ret</span><br></pre></td></tr></table></figure>
-<h2 id="找树左下角的值"><a href="#找树左下角的值" class="headerlink" title="找树左下角的值"></a>找树左下角的值</h2><p>给定一个二叉树，在树的最后一行找到最左边的值。</p>
+<h2 id="513-找树左下角的值"><a href="#513-找树左下角的值" class="headerlink" title="513. 找树左下角的值"></a>513. 找树左下角的值</h2><p>给定一个二叉树，在树的最后一行找到最左边的值。</p>
 <p><strong>示例 1:</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line"></span><br><span class="line">    2</span><br><span class="line">   &#x2F; \</span><br><span class="line">  1   3</span><br><span class="line"></span><br><span class="line">输出:</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
 <p>示例 2:</p>
@@ -363,7 +363,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#正则表达式匹配"><span class="toc-number">1.</span> <span class="toc-text">正则表达式匹配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#宝石与石头"><span class="toc-number">2.</span> <span class="toc-text">宝石与石头</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#找树左下角的值"><span class="toc-number">3.</span> <span class="toc-text">找树左下角的值</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#10-正则表达式匹配"><span class="toc-number">1.</span> <span class="toc-text">10. 正则表达式匹配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#771-宝石与石头"><span class="toc-number">2.</span> <span class="toc-text">771. 宝石与石头</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#513-找树左下角的值"><span class="toc-number">3.</span> <span class="toc-text">513. 找树左下角的值</span></a></li></ol>
                     </div>
                 </span>
             </div>

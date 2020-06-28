@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>leetcode 5.25-5.31 | milly&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="和可被K整除的子数组 字符串解码">
+  <meta name="description" content="974 和可被K整除的子数组 394 字符串解码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode 5.25-5.31">
 <meta property="og:url" content="http://yoursite.com/2020/05/27/leetcode-5-25-5-31/index.html">
 <meta property="og:site_name" content="milly&#39;s blog">
-<meta property="og:description" content="和可被K整除的子数组 字符串解码">
+<meta property="og:description" content="974 和可被K整除的子数组 394 字符串解码">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-27T15:52:22.000Z">
-<meta property="article:modified_time" content="2020-05-29T01:51:43.488Z">
+<meta property="article:modified_time" content="2020-06-28T08:39:26.056Z">
 <meta property="article:author" content="milly">
 <meta property="article:tag" content="刷题">
 <meta name="twitter:card" content="summary">
@@ -178,11 +178,11 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <ul>
-<li>和可被K整除的子数组</li>
-<li>字符串解码</li>
+<li>974 和可被K整除的子数组</li>
+<li>394 字符串解码</li>
 </ul>
 <a id="more"></a>
-<h2 id="和可被K整除的子数组"><a href="#和可被K整除的子数组" class="headerlink" title="和可被K整除的子数组"></a>和可被K整除的子数组</h2><p>给定一个整数数组 A，返回其中元素之和可被 K 整除的（连续、非空）子数组的数目。</p>
+<h2 id="974-和可被K整除的子数组"><a href="#974-和可被K整除的子数组" class="headerlink" title="974. 和可被K整除的子数组"></a>974. 和可被K整除的子数组</h2><p>给定一个整数数组 A，返回其中元素之和可被 K 整除的（连续、非空）子数组的数目。</p>
 <p>示例：</p>
 <p>输入：A = [4,5,0,-2,-3,1], K = 5<br>输出：7<br>解释：<br>有 7 个子数组满足其元素之和可被 K = 5 整除：<br>[4, 5, 0, -2, -3, 1], [5], [5, 0], [5, 0, -2, -3], [0], [0, -2, -3], [-2, -3]</p>
 <p>提示：</p>
@@ -198,7 +198,7 @@ var _hmt = _hmt || [];
 <p>python小知识：字典的get()方法，dict.get(key, default=None)，如果key不存在则返回默认值。</p>
 <p>AC代码：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">subarraysDivByK</span><span class="params">(self, A, K)</span>:</span></span><br><span class="line">        dic = &#123;&#125;</span><br><span class="line">        s = <span class="number">0</span></span><br><span class="line">        cnt = <span class="number">0</span></span><br><span class="line">        A.insert(<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> A:</span><br><span class="line">            s += num</span><br><span class="line">            remain = s % K</span><br><span class="line">            <span class="comment"># cnt += dic.get(remain, 0)</span></span><br><span class="line">            <span class="keyword">if</span> remain <span class="keyword">in</span> dic:</span><br><span class="line">                dic[remain] += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                dic[remain] = <span class="number">1</span></span><br><span class="line">            cnt += dic[remain] - <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> cnt</span><br></pre></td></tr></table></figure>
-<h2 id="字符串解码"><a href="#字符串解码" class="headerlink" title="字符串解码"></a>字符串解码</h2><p>给定一个经过编码的字符串，返回它解码后的字符串。</p>
+<h2 id="394-字符串解码"><a href="#394-字符串解码" class="headerlink" title="394. 字符串解码"></a>394. 字符串解码</h2><p>给定一个经过编码的字符串，返回它解码后的字符串。</p>
 <p>编码规则为: k[encoded_string]，表示其中方括号内部的 encoded_string 正好重复 k 次。注意 k 保证为正整数。</p>
 <p>你可以认为输入字符串总是有效的；输入字符串中没有额外的空格，且输入的方括号总是符合格式要求的。</p>
 <p>此外，你可以认为原始数据不包含数字，所有的数字只表示重复的次数 k ，例如不会出现像 3a 或 2[4] 的输入。</p>
@@ -357,7 +357,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#和可被K整除的子数组"><span class="toc-number">1.</span> <span class="toc-text">和可被K整除的子数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串解码"><span class="toc-number">2.</span> <span class="toc-text">字符串解码</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#974-和可被K整除的子数组"><span class="toc-number">1.</span> <span class="toc-text">974. 和可被K整除的子数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#394-字符串解码"><span class="toc-number">2.</span> <span class="toc-text">394. 字符串解码</span></a></li></ol>
                     </div>
                 </span>
             </div>
