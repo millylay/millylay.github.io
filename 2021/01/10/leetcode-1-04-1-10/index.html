@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/12 | milly&#39;s blog</title>
+  <title>leetcode 1.04-1.10 | milly&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="milly&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/archives/2020/12/index.html">
+  <meta name="description" content="剑指offer22 链表中倒数第k个节点 1015 可被K整除的最小整数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode 1.04-1.10">
+<meta property="og:url" content="http://yoursite.com/2021/01/10/leetcode-1-04-1-10/index.html">
 <meta property="og:site_name" content="milly&#39;s blog">
+<meta property="og:description" content="剑指offer22 链表中倒数第k个节点 1015 可被K整除的最小整数">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-01-10T07:09:27.000Z">
+<meta property="article:modified_time" content="2021-01-10T11:21:35.899Z">
 <meta property="article:author" content="milly">
+<meta property="article:tag" content="刷题">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="milly&#39;s blog" type="application/atom+xml">
@@ -152,36 +157,80 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-leetcode-1-04-1-10" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      leetcode 1.04-1.10
+    </h1>
+  
+
+        
+        <a href="/2021/01/10/leetcode-1-04-1-10/" class="archive-article-date">
+  	<time datetime="2021-01-10T07:09:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-10</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>剑指offer22 链表中倒数第k个节点</li>
+<li>1015 可被K整除的最小整数</li>
+</ul>
+<a id="more"></a>
+<h2 id="剑指offer-22-链表中倒数第k个节点"><a href="#剑指offer-22-链表中倒数第k个节点" class="headerlink" title="剑指offer 22. 链表中倒数第k个节点"></a>剑指offer 22. 链表中倒数第k个节点</h2><p>输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。例如，一个链表有6个节点，从头节点开始，它们的值依次是1、2、3、4、5、6。这个链表的倒数第3个节点是值为4的节点。</p>
+<p>示例：</p>
+<p>给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 k = 2.</p>
+<p>返回链表 4-&gt;5.</p>
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof" target="_blank" rel="noopener">https://leetcode-cn.com/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<p>思路：快慢指针</p>
+<p>AC代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getKthFromEnd</span><span class="params">(self, head, k)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type head: ListNode</span></span><br><span class="line"><span class="string">        :type k: int</span></span><br><span class="line"><span class="string">        :rtype: ListNode</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        tail = head</span><br><span class="line">        ret = head</span><br><span class="line">        loop = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> loop &lt; k <span class="keyword">and</span> tail != <span class="literal">None</span>:</span><br><span class="line">            tail = tail.next</span><br><span class="line">            loop += <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> tail != <span class="literal">None</span>:</span><br><span class="line">            ret = ret.next</span><br><span class="line">            tail = tail.next</span><br><span class="line">        <span class="keyword">return</span> ret</span><br></pre></td></tr></table></figure>
+<h2 id="1015-可被K整除的最小整数"><a href="#1015-可被K整除的最小整数" class="headerlink" title="1015. 可被K整除的最小整数"></a>1015. 可被K整除的最小整数</h2><p>给定正整数 K，你需要找出可以被 K 整除的、仅包含数字 1 的最小正整数 N。</p>
+<p>返回 N 的长度。如果不存在这样的 N，就返回 -1。</p>
+<p>示例 1：</p>
+<p>输入：1<br>输出：1<br>解释：最小的答案是 N = 1，其长度为 1。</p>
+<p>示例 2：</p>
+<p>输入：2<br>输出：-1<br>解释：不存在可被 2 整除的正整数 N 。</p>
+<p>示例 3：</p>
+<p>输入：3<br>输出：3<br>解释：最小的答案是 N = 111，其长度为 3。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/smallest-integer-divisible-by-k" target="_blank" rel="noopener">https://leetcode-cn.com/problems/smallest-integer-divisible-by-k</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<p>思路：N是完全由1组成的数字，那么必然不能被2和5整除，所以首先把这两种情况排除。之后逐步增大N，判断能否整除K即可。需要注意N可能会超出int表示范围，详情见官方题解数学证明。</p>
+<p>AC代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">smallestRepunitDivByK</span><span class="params">(self, K)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type K: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> K % <span class="number">2</span> <span class="keyword">is</span> <span class="number">0</span> <span class="keyword">or</span> K % <span class="number">5</span> <span class="keyword">is</span> <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">        N = <span class="number">1</span></span><br><span class="line">        ret = <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> N % K != <span class="number">0</span>:</span><br><span class="line">            N = N * <span class="number">10</span> + <span class="number">1</span></span><br><span class="line">            ret += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> ret</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/27/leetcode-12-21-12-27/" class="archive-article-date">
-  	<time datetime="2020-12-27T01:39:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/27/leetcode-12-21-12-27/">leetcode 12.21-12.27</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -193,133 +242,119 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/01/10/leetcode-1-04-1-10/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/22/Linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2020-12-22T10:13:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-22</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/12/27/leetcode-12-21-12-27/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">leetcode 12.21-12.27</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/22/Linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">Linux常用指令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#剑指offer-22-链表中倒数第k个节点"><span class="toc-number">1.</span> <span class="toc-text">剑指offer 22. 链表中倒数第k个节点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1015-可被K整除的最小整数"><span class="toc-number">2.</span> <span class="toc-text">1015. 可被K整除的最小整数</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/20/leetcode-12-14-12-20/" class="archive-article-date">
-  	<time datetime="2020-12-20T09:46:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-20</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/20/leetcode-12-14-12-20/">leetcode 12.14-12.20</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">刷题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/04/leetcode-11-30-12-06/" class="archive-article-date">
-  	<time datetime="2020-12-04T12:22:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/04/leetcode-11-30-12-06/">leetcode 11.30-12.06</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">刷题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -342,8 +377,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
